@@ -16,6 +16,7 @@ class _HelloWorldState extends State<HelloWorld> {
       body: Center(
         child: Text(
           'Hello World !!!',
+          textAlign: TextAlign.center,
           style: TextStyle(fontSize: 80.0),
         ),
       ),
