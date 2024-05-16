@@ -1,4 +1,4 @@
-import 'package:flutter_recruitment_task/core/app_config.dart';
+import 'package:upray_mobile/core/app_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

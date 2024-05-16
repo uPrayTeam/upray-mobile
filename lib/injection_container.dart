@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/core/app_config.dart';
-import 'package:flutter_recruitment_task/core/logger/logger.dart';
-import 'package:flutter_recruitment_task/core/router/router.dart';
-import 'package:flutter_recruitment_task/features/card_payment/injection_container.dart';
+import 'package:upray_mobile/core/app_config.dart';
+import 'package:upray_mobile/core/logger/logger.dart';
+import 'package:upray_mobile/core/router/router.dart';
+import 'package:upray_mobile/features/card_payment/injection_container.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;

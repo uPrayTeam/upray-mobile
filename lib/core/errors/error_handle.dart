@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_recruitment_task/core/errors/failure.dart';
-import 'package:flutter_recruitment_task/core/logger/logger.dart';
-import 'package:flutter_recruitment_task/injection_container.dart';
+import 'package:upray_mobile/core/errors/failure.dart';
+import 'package:upray_mobile/core/logger/logger.dart';
+import 'package:upray_mobile/injection_container.dart';
 
 Failure handleError(
   final dynamic error,

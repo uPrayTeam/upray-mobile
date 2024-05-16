@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/gen/strings.g.dart';
-import 'package:flutter_recruitment_task/injection_container.dart';
+import 'package:upray_mobile/gen/strings.g.dart';
+import 'package:upray_mobile/injection_container.dart';
 
 import 'app.dart';
 

@@ -1,4 +1,4 @@
-package dev.theheart.flutter_recruitment_task
+package uprayteam.upray_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 

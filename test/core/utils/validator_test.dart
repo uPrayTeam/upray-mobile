@@ -1,4 +1,4 @@
-import 'package:flutter_recruitment_task/core/utils/validator.dart';
+import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

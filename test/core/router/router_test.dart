@@ -1,4 +1,4 @@
-import 'package:flutter_recruitment_task/core/router/router.dart';
+import 'package:upray_mobile/core/router/router.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

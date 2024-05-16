@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_recruitment_task/gen/strings.g.dart';
+import 'package:upray_mobile/gen/strings.g.dart';
 
 abstract class Failure extends Equatable {
   const Failure();
@@ -13,9 +13,4 @@ abstract class Failure extends Equatable {
   String toString() {
     return '${super.toString().replaceAll('Instance of', '')} $errorMessage';
   }
-}
-
-class CardPaymentFailure extends Failure {
-  @override
-  String get errorMessage => t.failures.cardPaymentFailure;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/core/presentation/widgets/gap.dart';
+import 'package:upray_mobile/core/presentation/widgets/gap.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
