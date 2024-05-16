@@ -1,0 +1,26 @@
+{
+  "common": {
+    "appName": "Card Payment"
+  },
+  "cardPayment": {
+    "open": "Otwórz",
+    "startPayment": "Rozpocznij płatność",
+    "pay": "Zapłać",
+    "cardNumber": "Numer karty",
+    "expirationDate": "Data ważności",
+    "cvv": "CVV",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "paymentInProgress": "Płatność w toku.."
+  },
+  "validators": {
+    "fieldCannotBeEmpty": "Pole nie może być puste",
+    "ccNumberTooShort": "Numer karty jest za krótki",
+    "invalidCC": "Numer karty jest nieprawidłowy",
+    "cvvTooShort": "Numer CVV jest za krótki",
+    "cvvInvalid": "CVV jest nieprawidłowe"
+  },
+  "failures": {
+    "cardPaymentFailure": "Wystąpił problem z twoją płatnością"
+  }
+}

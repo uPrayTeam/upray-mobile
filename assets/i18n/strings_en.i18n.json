@@ -1,0 +1,26 @@
+{
+  "common": {
+    "appName": "Card payment"
+  },
+  "cardPayment": {
+    "open": "Open",
+    "startPayment": "Start payment",
+    "pay": "Pay",
+    "cardNumber": "Card number",
+    "expirationDate": "Expiration date",
+    "cvv": "CVV",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "paymentInProgress": "Payment in progress.."
+  },
+  "validators": {
+    "fieldCannotBeEmpty": "Field cannot be empty",
+    "ccNumberTooShort": "CC number is too short",
+    "invalidCC": "CC number is invalid",
+    "cvvTooShort": "CVV number is too short",
+    "cvvInvalid": "Cvv is invalid"
+  },
+  "failures": {
+    "cardPaymentFailure": "There was a problem with your payment"
+  }
+}

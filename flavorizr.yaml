@@ -1,0 +1,16 @@
+flavors:
+  production:
+    app:
+      name: "Card app"
+    android:
+      applicationId: "cdev.theheart.flutter_recruitment_task"
+  #    ios:
+  #      bundleId: "dev.theheart.flutter_recruitment_task"
+
+  development:
+    app:
+      name: "Card app DEV"
+    android:
+      applicationId: "dev.theheart.flutter_recruitment_task.dev"
+#    ios:
+#      bundleId: "dev.theheart.flutter_recruitment_task.dev "
