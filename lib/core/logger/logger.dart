@@ -1,9 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:upray_mobile/core/app_config.dart';
 import 'package:talker/talker.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
+import 'package:upray_mobile/core/app_config.dart';
 
 class Logger extends Talker {
   final AppConfig config;
@@ -30,6 +32,7 @@ class Logger extends Talker {
 
   void logConfig({required AppConfig config, required Talker talker}) {
     talker.debug('Selected flavor - ${config.flavor.name}');
-    talker.debug('API Server URL - ${config.api.isNotEmpty ? config.api : 'NONE'}');
+    talker.debug(
+        'API Server URL - ${config.api.isNotEmpty ? config.api : 'NONE'}');
   }
 }
