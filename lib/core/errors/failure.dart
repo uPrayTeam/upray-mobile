@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:upray_mobile/gen/strings.g.dart';
 
 abstract class Failure extends Equatable {
   const Failure();
