@@ -14,7 +14,7 @@ abstract class AppConfig {
 
   String get apiHostName;
 
-  String get api => 'https://$apiHostName/api';
+  String get api => 'http://$apiHostName:8080/upray/api';
 
   String get appUrl => 'https://$apiHostName';
 
@@ -47,7 +47,7 @@ class DevConfig extends AppConfig {
   bool silenceLogs = false;
 
   @override
-  String get apiHostName => 'dev.fakeapphost.com';
+  String get apiHostName => '127.0.0.1';
 
   @override
   Flavor get flavor => Flavor.development;

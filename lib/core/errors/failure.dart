@@ -13,3 +13,13 @@ abstract class Failure extends Equatable {
     return '${super.toString().replaceAll('Instance of', '')} $errorMessage';
   }
 }
+
+class LogInFailure extends Failure {
+  @override
+  String get errorMessage => throw UnimplementedError();
+}
+
+class LogOutFailure extends Failure {
+  @override
+  String get errorMessage => throw UnimplementedError();
+}

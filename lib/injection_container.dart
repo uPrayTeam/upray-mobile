@@ -1,15 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:upray_mobile/core/app_config.dart';
 import 'package:upray_mobile/core/logger/logger.dart';
 import 'package:upray_mobile/core/router/router.dart';
-import 'package:get_it/get_it.dart';
+import 'package:upray_mobile/features/auth/injection_container.dart';
 
 final sl = GetIt.instance;
 
 const globalDio = 'global';
 
-class InjectionContainer extends Injector {}
+class InjectionContainer extends Injector with AuthInjector {}
 
 abstract class Injector {
   @mustCallSuper
