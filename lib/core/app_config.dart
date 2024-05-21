@@ -1,6 +1,7 @@
 enum Flavor {
   production,
   development,
+  local,
 }
 
 abstract class F {
@@ -34,6 +35,8 @@ abstract class AppConfig {
         return DevConfig();
       case Flavor.production:
         return const ProdConfig(silenceLogs: !isVerbose);
+      case Flavor.local:
+        return const LocalConfig();
       default:
         throw UnimplementedError();
     }
@@ -66,4 +69,17 @@ class ProdConfig extends AppConfig {
 
   @override
   Flavor get flavor => Flavor.production;
+}
+
+class LocalConfig extends AppConfig {
+  const LocalConfig() : super._();
+
+  @override
+  bool get silenceLogs => false;
+
+  @override
+  String get apiHostName => '127.0.0.1';
+
+  @override
+  Flavor get flavor => Flavor.local;
 }

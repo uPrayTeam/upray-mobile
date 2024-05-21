@@ -1,0 +1,7 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_local.dart
+ASSET_PREFIX=local
+BUNDLE_NAME=Upray LOCAL
+BUNDLE_DISPLAY_NAME=Upray LOCAL
