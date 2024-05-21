@@ -21,14 +21,4 @@ class AuthRepositoryImpl extends AuthRepository {
       return Left(handleError(error, LogInFailure()));
     }
   }
-
-  @override
-  FutureFailable<Success> logOut() async {
-    try {
-      final result = await authDatasource.logOut();
-      return Right(result);
-    } catch (error) {
-      return Left(handleError(error, LogOutFailure()));
-    }
-  }
 }

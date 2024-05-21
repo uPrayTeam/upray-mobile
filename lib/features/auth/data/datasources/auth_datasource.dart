@@ -6,8 +6,6 @@ import 'package:upray_mobile/features/auth/domain/entities%20/params/log_in_para
 
 abstract class AuthDatasource {
   Future<Success> logIn(LogInParams params);
-
-  Future<Success> logOut();
 }
 
 class AuthDatasourceImpl extends AuthDatasource {
@@ -20,15 +18,6 @@ class AuthDatasourceImpl extends AuthDatasource {
     final result = await dio.post(
       '/auth/login',
       data: params.toMap(),
-    );
-
-    return const Success();
-  }
-
-  @override
-  Future<Success> logOut() async {
-    final result = await dio.get(
-      '/auth/logout',
     );
 
     return const Success();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:upray_mobile/core/presentation/style/custom_textfield_decoration.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
+import 'package:upray_mobile/core/utils/extensions.dart';
 import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:upray_mobile/features/auth/data/models/params/log_in_params_model.dart';
 import 'package:upray_mobile/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
@@ -83,7 +84,7 @@ class _LogInPageState extends State<LogInPage> {
       context.read<AuthBloc>().add(
             LogInUserAuthEvent(
               params: LogInParamsModel(
-                password: _passwordController.value.text,
+                password: _passwordController.value.text.hashString,
                 email: _emailController.value.text,
               ),
             ),

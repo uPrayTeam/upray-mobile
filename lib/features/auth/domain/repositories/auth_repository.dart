@@ -4,6 +4,4 @@ import 'package:upray_mobile/features/auth/domain/entities%20/params/log_in_para
 
 abstract class AuthRepository {
   FutureFailable<Success> logIn(LogInParams params);
-
-  FutureFailable<Success> logOut();
 }
