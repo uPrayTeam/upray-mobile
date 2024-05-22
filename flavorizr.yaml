@@ -2,15 +2,23 @@ flavors:
   production:
     app:
       name: "Upray"
-      #    android:
-      #      applicationId: "uprayteam.upray_mobile"
+      android:
+        applicationId: "uprayteam.upray_mobile.prod"
       ios:
-        bundleId: "uprayteam.upray_mobile"
+        bundleId: "uprayteam.upray_mobile.prod"
 
   development:
     app:
       name: "Upray DEV"
-    #    android:
-    #      applicationId: "uprayteam.upray_mobile.dev"
+    android:
+      applicationId: "uprayteam.upray_mobile.dev"
     ios:
       bundleId: "uprayteam.upray_mobile.dev "
+
+  local:
+    app:
+      name: "Upray LOCAL"
+    android:
+      applicationId: "uprayteam.upray_mobile.local"
+    ios:
+      bundleId: "uprayteam.upray_mobile.local "
