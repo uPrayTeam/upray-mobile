@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:upray_mobile/core/presentation/style/custom_textfield_decoration.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
 import 'package:upray_mobile/core/utils/extensions.dart';
 import 'package:upray_mobile/core/utils/validator.dart';
@@ -49,27 +48,48 @@ class _LogInPageState extends State<LogInPage> {
             padding: const EdgeInsets.all(8.0),
             child: Form(
               key: _formKey,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextFormField(
-                      decoration: const CustomTextfieldDecoration(),
-                      controller: _emailController,
-                      validator: Validators.emailValidator,
-                    ),
-                    const Gap(16.0),
-                    TextFormField(
-                      decoration: const CustomTextfieldDecoration(),
-                      controller: _passwordController,
-                      validator: Validators.emptyValidator,
-                      obscureText: true,
-                    ),
-                    const Gap(32.0),
-                    ElevatedButton(
-                        onPressed: () => _onSubmit(context),
-                        child: Text(t.auth.signIn)),
-                  ],
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Spacer(),
+                      Expanded(
+                        child: Text(
+                          t.appName,
+                          textAlign: TextAlign.center,
+                          style:
+                              Theme.of(context).primaryTextTheme.displayLarge,
+                        ),
+                      ),
+                      TextFormField(
+                        controller: _emailController,
+                        autocorrect: false,
+                        autofillHints: const [AutofillHints.email],
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: Validators.emailValidator,
+                        decoration: InputDecoration(hintText: t.auth.emailHint),
+                      ),
+                      const Gap(16.0),
+                      TextFormField(
+                        controller: _passwordController,
+                        autocorrect: false,
+                        autofillHints: const [AutofillHints.password],
+                        validator: Validators.emptyValidator,
+                        obscureText: true,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration:
+                            InputDecoration(hintText: t.auth.passwordHint),
+                      ),
+                      const Gap(32.0),
+                      const Spacer(),
+                      ElevatedButton(
+                          onPressed: () => _onSubmit(context),
+                          child: Text(t.auth.signIn)),
+                    ],
+                  ),
                 ),
               ),
             ),
