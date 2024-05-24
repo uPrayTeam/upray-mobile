@@ -42,6 +42,7 @@ dependencies:
   equatable: ^2.0.5
   solid_lints: ^0.1.5
   crypto: ^3.0.3
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:

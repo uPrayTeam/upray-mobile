@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:upray_mobile/core/presentation/themes/default_theme.dart';
 import 'package:upray_mobile/core/router/router.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 import 'package:upray_mobile/injection_container.dart';
@@ -14,9 +15,7 @@ class App extends StatelessWidget {
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       routerConfig: sl<AppRouter>().config(),
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
+      theme: defaultAppTheme,
     );
   }
 }

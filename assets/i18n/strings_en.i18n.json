@@ -1,9 +1,12 @@
 {
+  "appName": "uPray",
   "validators": {
     "fieldCannotBeEmpty": "Field cannot be empty."
   },
   "auth": {
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "emailHint": "E-mail",
+    "passwordHint": "Password"
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",
