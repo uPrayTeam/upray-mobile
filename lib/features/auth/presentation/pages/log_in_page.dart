@@ -45,89 +45,93 @@ class _LogInPageState extends State<LogInPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => sl<AuthBloc>(),
-      child: Builder(builder: (context) {
-        return Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Form(
-              key: _formKey,
-              child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Spacer(),
-                      Expanded(
-                        child: Text(
-                          t.appName,
-                          textAlign: TextAlign.center,
-                          style:
-                              Theme.of(context).primaryTextTheme.displayLarge,
+      child: Builder(
+        builder: (context) {
+          return Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Form(
+                key: _formKey,
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Spacer(),
+                        Expanded(
+                          child: Text(
+                            t.appName,
+                            textAlign: TextAlign.center,
+                            style:
+                                Theme.of(context).primaryTextTheme.displayLarge,
+                          ),
                         ),
-                      ),
-                      CustomTextFormField(
-                        textLabel: context.t.auth.emailLabel,
-                        controller: _emailController,
-                        autocorrect: false,
-                        autofillHints: const [AutofillHints.email],
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        validator: Validators.emailValidator,
-                        decoration: InputDecoration(hintText: t.auth.emailHint),
-                      ),
-                      const Gap(16.0),
-                      CustomTextFormField(
-                        textLabel: context.t.auth.passwordLabel,
-                        controller: _passwordController,
-                        autocorrect: false,
-                        autofillHints: const [AutofillHints.password],
-                        validator: Validators.emptyValidator,
-                        obscureText: true,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration:
-                            InputDecoration(hintText: t.auth.passwordHint),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                            style: Theme.of(context).textTheme.bodyMedium,
-                            text: t.auth.forgotYourPassword,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => _onForgotPassword(context)),
-                      ),
-                      const Gap(32.0),
-                      const Spacer(),
-                      ElevatedButton(
-                        onPressed: () => _onSubmit(context),
-                        child: Text(t.auth.signIn),
-                      ),
-                      const Gap(32.0),
-                      RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          text: t.auth.dontHaveAnAccount,
-                          children: [
-                            TextSpan(
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium
-                                  ?.copyWith(fontWeight: FontWeight.w600),
-                              text: t.auth.signUp,
+                        CustomTextFormField(
+                          textLabel: context.t.auth.emailLabel,
+                          controller: _emailController,
+                          autocorrect: false,
+                          autofillHints: const [AutofillHints.email],
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: Validators.emailValidator,
+                          decoration:
+                              InputDecoration(hintText: t.auth.emailHint),
+                        ),
+                        const Gap(16.0),
+                        CustomTextFormField(
+                          textLabel: context.t.auth.passwordLabel,
+                          controller: _passwordController,
+                          autocorrect: false,
+                          autofillHints: const [AutofillHints.password],
+                          validator: Validators.emptyValidator,
+                          obscureText: true,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration:
+                              InputDecoration(hintText: t.auth.passwordHint),
+                        ),
+                        const Gap(16.0),
+                        RichText(
+                          text: TextSpan(
+                              style: Theme.of(context).textTheme.bodyMedium,
+                              text: t.auth.forgotYourPassword,
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () => _onRegisterTap(context),
-                            ),
-                          ],
+                                ..onTap = () => _onForgotPassword(context)),
                         ),
-                      ),
-                    ],
+                        const Gap(32.0),
+                        const Spacer(),
+                        ElevatedButton(
+                          onPressed: () => _onSubmit(context),
+                          child: Text(t.auth.signIn),
+                        ),
+                        const Gap(32.0),
+                        RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            style: Theme.of(context).textTheme.bodyMedium,
+                            text: t.auth.dontHaveAnAccount,
+                            children: [
+                              TextSpan(
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(fontWeight: FontWeight.w600),
+                                text: t.auth.signUp,
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () => _onRegisterTap(context),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 

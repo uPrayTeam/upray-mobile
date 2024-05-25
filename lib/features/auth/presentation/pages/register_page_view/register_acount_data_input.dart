@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:upray_mobile/core/presentation/widgets/custom_text_form_field.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
+import 'package:upray_mobile/core/utils/extensions.dart';
 import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 
@@ -10,7 +12,6 @@ class RegisterAccountDataInput extends StatelessWidget {
   final Function(
     String email,
     String password,
-    String repeatPassword,
   ) onSaved;
 
   final GlobalKey formKey;
@@ -48,6 +49,7 @@ class RegisterAccountDataInput extends StatelessWidget {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: Validators.emailValidator,
                   onSaved: (_) => _onSaved(),
+                  inputFormatters: [LengthLimitingTextInputFormatter(70)],
                   decoration: InputDecoration(
                     hintText: t.auth.emailHint,
                   ),
@@ -61,6 +63,8 @@ class RegisterAccountDataInput extends StatelessWidget {
                   autofillHints: const [AutofillHints.email],
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: Validators.passwordValidator,
+                  inputFormatters: [LengthLimitingTextInputFormatter(100)],
+                  obscureText: true,
                   onSaved: (_) => _onSaved(),
                   decoration: InputDecoration(
                     hintText: t.auth.passwordHint,
@@ -74,7 +78,9 @@ class RegisterAccountDataInput extends StatelessWidget {
                   textLabel: context.t.auth.repeatPasswordLabel,
                   autocorrect: false,
                   autofillHints: const [AutofillHints.email],
+                  inputFormatters: [LengthLimitingTextInputFormatter(100)],
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  obscureText: true,
                   validator: (value) => Validators.repeatPasswordValidator(
                     value,
                     _passwordController.value.text,
@@ -95,8 +101,7 @@ class RegisterAccountDataInput extends StatelessWidget {
   void _onSaved() {
     onSaved.call(
       _emailController.value.text,
-      _passwordController.value.text,
-      _repeatPasswordController.value.text,
+      _passwordController.value.text.hashString,
     );
   }
 }

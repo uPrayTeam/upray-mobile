@@ -5,6 +5,7 @@ import 'package:upray_mobile/features/auth/domain/repositories/auth_repository.d
 import 'package:upray_mobile/features/auth/domain/use_cases/log_in_use_case.dart';
 import 'package:upray_mobile/features/auth/domain/use_cases/log_out_use_case.dart';
 import 'package:upray_mobile/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
+import 'package:upray_mobile/features/auth/presentation/blocs/register_bloc/register_bloc.dart';
 import 'package:upray_mobile/injection_container.dart';
 
 mixin AuthInjector on Injector {
@@ -23,9 +24,11 @@ mixin AuthInjector on Injector {
     sl.registerLazySingleton<LogOutUseCase>(
         () => LogOutUseCase(authRepository: sl()));
 
-    sl.registerFactory(() => AuthBloc(
+    sl.registerFactory<AuthBloc>(() => AuthBloc(
           logInUseCase: sl(),
           logOutUseCase: sl(),
         ));
+
+    sl.registerFactory<RegisterBloc>(() => RegisterBloc());
   }
 }

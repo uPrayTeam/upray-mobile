@@ -1,45 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:upray_mobile/core/presentation/style/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final TextEditingController? controller;
-  final bool? autocorrect;
-  final List<String>? autofillHints;
-  final String? Function(String?)? validator;
-  final bool? obscureText;
-  final AutovalidateMode? autovalidateMode;
-  final InputDecoration? decoration;
-  final String? textLabel;
-  final TextInputType? keyboardType;
-  final bool? enabled;
-  final void Function(String)? onChanged;
-  final TextInputAction? textInputAction;
-  final TextStyle? style;
-  final StrutStyle? strutStyle;
-  final TextDirection? textDirection;
-  final TextAlign? textAlign;
-  final TextAlignVertical? textAlignVertical;
-  final bool? autofocus;
-  final bool? readOnly;
-  final bool? showCursor;
-  final String? obscuringCharacter;
-  final int? maxLines;
-  final int? minLines;
-  final bool? expands;
-  final int? maxLength;
-  final ValueChanged<String>? onFieldSubmitted;
-  final FormFieldSetter<String>? onSaved;
-  final VoidCallback? onEditingComplete;
-  final bool? enableSuggestions;
-  final Brightness? keyboardAppearance;
-  final EdgeInsetsGeometry? scrollPadding;
-  final bool? enableInteractiveSelection;
-  final TextCapitalization? textCapitalization;
-  final ScrollPhysics? scrollPhysics;
-  final InputCounterWidgetBuilder? buildCounter;
-  final bool? enableIMEPersonalizedLearning;
-  final bool isRequired;
-
   CustomTextFormField({
     this.controller,
     this.autocorrect,
@@ -78,7 +41,49 @@ class CustomTextFormField extends StatelessWidget {
     this.buildCounter,
     this.enableIMEPersonalizedLearning,
     this.isRequired = false,
+    this.inputFormatters,
+    this.onTap,
   });
+
+  final TextEditingController? controller;
+  final bool? autocorrect;
+  final List<String>? autofillHints;
+  final String? Function(String?)? validator;
+  final bool? obscureText;
+  final AutovalidateMode? autovalidateMode;
+  final InputDecoration? decoration;
+  final String? textLabel;
+  final TextInputType? keyboardType;
+  final bool? enabled;
+  final void Function(String)? onChanged;
+  final TextInputAction? textInputAction;
+  final TextStyle? style;
+  final StrutStyle? strutStyle;
+  final TextDirection? textDirection;
+  final TextAlign? textAlign;
+  final TextAlignVertical? textAlignVertical;
+  final bool? autofocus;
+  final bool? readOnly;
+  final bool? showCursor;
+  final String? obscuringCharacter;
+  final int? maxLines;
+  final int? minLines;
+  final bool? expands;
+  final int? maxLength;
+  final ValueChanged<String>? onFieldSubmitted;
+  final FormFieldSetter<String>? onSaved;
+  final VoidCallback? onEditingComplete;
+  final bool? enableSuggestions;
+  final Brightness? keyboardAppearance;
+  final EdgeInsetsGeometry? scrollPadding;
+  final bool? enableInteractiveSelection;
+  final TextCapitalization? textCapitalization;
+  final ScrollPhysics? scrollPhysics;
+  final InputCounterWidgetBuilder? buildCounter;
+  final bool? enableIMEPersonalizedLearning;
+  final bool isRequired;
+  final List<TextInputFormatter>? inputFormatters;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +109,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
         ],
         TextFormField(
+          inputFormatters: inputFormatters,
           controller: controller,
           autocorrect: autocorrect ?? true,
           autofillHints: autofillHints,
@@ -138,6 +144,7 @@ class CustomTextFormField extends StatelessWidget {
           scrollPhysics: scrollPhysics,
           buildCounter: buildCounter,
           enableIMEPersonalizedLearning: enableIMEPersonalizedLearning ?? true,
+          onTap: onTap,
         ),
       ],
     );

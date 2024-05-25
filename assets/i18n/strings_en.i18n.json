@@ -22,7 +22,18 @@
     "registerHeader": "Join thousands of people to whom God is in the first place!",
     "repeatPasswordHint": "Repeat password",
     "repeatPasswordLabel": "Repeat password",
-    "nextStep": "Next step"
+    "nextStep": "Next step",
+    "firstName": "First name",
+    "firstNameHint": "First name",
+    "firstNameLabel": "First name",
+    "lastName": "Last name",
+    "lastNameHint": "Last name",
+    "lastNameLabel": "Last name",
+    "dateOfBirth": "Date of birth",
+    "dateOfBirthLabel": "Date of birth",
+    "dateOfBirthHint": "Date of birth",
+    "makeTheJourneyYours": "Make the journey Yours",
+    "personalDataHeader": "Introduce yourself to make using uPray a unique experience."
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",
