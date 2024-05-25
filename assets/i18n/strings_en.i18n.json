@@ -1,12 +1,28 @@
 {
   "appName": "uPray",
   "validators": {
-    "fieldCannotBeEmpty": "Field cannot be empty."
+    "fieldCannotBeEmpty": "Field cannot be empty.",
+    "passTooShort": "Password is too short.",
+    "passMustContainChar": "Password must contain at least one number.",
+    "passwordCannotBeEmpty": "Password cannot be empty.",
+    "passwordsAreNotTheSame": "Passwords are not the same."
   },
   "auth": {
     "signIn": "Sign in",
     "emailHint": "E-mail",
-    "passwordHint": "Password"
+    "emailLabel": "E-mail",
+    "passwordHint": "Password",
+    "passwordLabel": "Password",
+    "dontHaveAnAccount": "Don't have an account? ",
+    "signUp": "Sign up",
+    "createOne": "Create one!",
+    "forgotYourPassword": "Forgot your password?",
+    "createNewAccount": "Create new account",
+    "changeYourLife": "Change Your life",
+    "registerHeader": "Join thousands of people to whom God is in the first place!",
+    "repeatPasswordHint": "Repeat password",
+    "repeatPasswordLabel": "Repeat password",
+    "nextStep": "Next step"
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",

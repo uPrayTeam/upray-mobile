@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:upray_mobile/core/presentation/widgets/custom_text_form_field.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
+import 'package:upray_mobile/core/router/router.gr.dart';
 import 'package:upray_mobile/core/utils/extensions.dart';
 import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:upray_mobile/features/auth/data/models/params/log_in_params_model.dart';
@@ -64,7 +67,8 @@ class _LogInPageState extends State<LogInPage> {
                               Theme.of(context).primaryTextTheme.displayLarge,
                         ),
                       ),
-                      TextFormField(
+                      CustomTextFormField(
+                        textLabel: context.t.auth.emailLabel,
                         controller: _emailController,
                         autocorrect: false,
                         autofillHints: const [AutofillHints.email],
@@ -73,7 +77,8 @@ class _LogInPageState extends State<LogInPage> {
                         decoration: InputDecoration(hintText: t.auth.emailHint),
                       ),
                       const Gap(16.0),
-                      TextFormField(
+                      CustomTextFormField(
+                        textLabel: context.t.auth.passwordLabel,
                         controller: _passwordController,
                         autocorrect: false,
                         autofillHints: const [AutofillHints.password],
@@ -83,11 +88,38 @@ class _LogInPageState extends State<LogInPage> {
                         decoration:
                             InputDecoration(hintText: t.auth.passwordHint),
                       ),
+                      RichText(
+                        text: TextSpan(
+                            style: Theme.of(context).textTheme.bodyMedium,
+                            text: t.auth.forgotYourPassword,
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => _onForgotPassword(context)),
+                      ),
                       const Gap(32.0),
                       const Spacer(),
                       ElevatedButton(
-                          onPressed: () => _onSubmit(context),
-                          child: Text(t.auth.signIn)),
+                        onPressed: () => _onSubmit(context),
+                        child: Text(t.auth.signIn),
+                      ),
+                      const Gap(32.0),
+                      RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.bodyMedium,
+                          text: t.auth.dontHaveAnAccount,
+                          children: [
+                            TextSpan(
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(fontWeight: FontWeight.w600),
+                              text: t.auth.signUp,
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => _onRegisterTap(context),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -97,6 +129,14 @@ class _LogInPageState extends State<LogInPage> {
         );
       }),
     );
+  }
+
+  void _onForgotPassword(BuildContext context) {
+    context.router.push(const RegisterRoute());
+  }
+
+  void _onRegisterTap(BuildContext context) {
+    context.router.push(const RegisterRoute());
   }
 
   void _onSubmit(BuildContext context) {

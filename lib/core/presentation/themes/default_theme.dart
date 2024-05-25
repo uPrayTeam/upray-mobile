@@ -11,6 +11,10 @@ ThemeData get defaultAppTheme => ThemeData(
           ),
         ),
       ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.yellowGold,
+      ),
       textTheme: GoogleFonts.acmeTextTheme(
         const TextTheme(
           labelLarge: TextStyle(fontSize: 22.0),
@@ -19,6 +23,10 @@ ThemeData get defaultAppTheme => ThemeData(
             color: AppColors.yellowGold,
           ),
           bodyLarge: TextStyle(color: AppColors.textDarkBlue),
+          bodyMedium: TextStyle(color: AppColors.whiteColor, fontSize: 16.0),
+          displayMedium: TextStyle(color: AppColors.whiteColor),
+          titleLarge: TextStyle(color: AppColors.whiteColor),
+          labelMedium: TextStyle(color: AppColors.yellowGold, fontSize: 14.0),
         ),
       ),
       scaffoldBackgroundColor: AppColors.darkBLue,
