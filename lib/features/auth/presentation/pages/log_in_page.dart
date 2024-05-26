@@ -48,6 +48,7 @@ class _LogInPageState extends State<LogInPage> {
       child: Builder(
         builder: (context) {
           return Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Form(

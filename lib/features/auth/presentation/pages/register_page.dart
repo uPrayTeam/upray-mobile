@@ -42,6 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
       create: (context) => sl<RegisterBloc>(),
       child: Builder(builder: (context) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title: Text(context.t.auth.createNewAccount),
             leading: BackButton(
