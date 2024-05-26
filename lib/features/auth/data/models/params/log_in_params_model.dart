@@ -1,4 +1,4 @@
-import 'package:upray_mobile/features/auth/domain/entities%20/params/log_in_params.dart';
+import 'package:upray_mobile/features/auth/domain/entities/params/log_in_params.dart';
 
 class LogInParamsModel extends LogInParams {
   LogInParamsModel({

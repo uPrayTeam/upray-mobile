@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:upray_mobile/core/errors/failure.dart';
-import 'package:upray_mobile/features/auth/domain/entities%20/params/log_in_params.dart';
+import 'package:upray_mobile/features/auth/domain/entities/params/log_in_params.dart';
 import 'package:upray_mobile/features/auth/domain/use_cases/log_in_use_case.dart';
 import 'package:upray_mobile/features/auth/domain/use_cases/log_out_use_case.dart';
 
