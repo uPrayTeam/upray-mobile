@@ -1,4 +1,4 @@
-import 'package:upray_mobile/features/auth/domain/entities%20/auth_token.dart';
+import 'package:upray_mobile/features/auth/domain/entities/auth_token.dart';
 
 class AuthTokenModel extends AuthToken {
   AuthTokenModel({

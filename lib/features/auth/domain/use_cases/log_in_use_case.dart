@@ -1,6 +1,6 @@
 import 'package:upray_mobile/core/utils/type_aliases.dart';
 import 'package:upray_mobile/core/utils/usecase.dart';
-import 'package:upray_mobile/features/auth/domain/entities%20/params/log_in_params.dart';
+import 'package:upray_mobile/features/auth/domain/entities/params/log_in_params.dart';
 import 'package:upray_mobile/features/auth/domain/repositories/auth_repository.dart';
 
 class LogInUseCase extends UseCase<Success, LogInParams> {
