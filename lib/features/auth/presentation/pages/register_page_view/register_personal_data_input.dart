@@ -7,8 +7,7 @@ import 'package:upray_mobile/core/presentation/widgets/gap.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 
 class RegisterPersonalDataInput extends StatelessWidget {
-  RegisterPersonalDataInput(
-      {super.key, required this.onSaved, required this.formKey});
+  RegisterPersonalDataInput({super.key, required this.onSaved, required this.formKey});
 
   final Function(
     String? firstName,
@@ -32,6 +31,7 @@ class RegisterPersonalDataInput extends StatelessWidget {
             context.t.auth.makeTheJourneyYours,
             style: Theme.of(context).textTheme.displayMedium,
           ),
+          const Gap(4.0),
           Text(
             context.t.auth.personalDataHeader,
             style: Theme.of(context).textTheme.titleLarge,
@@ -40,6 +40,8 @@ class RegisterPersonalDataInput extends StatelessWidget {
           CustomTextFormField(
             controller: _firstNameController,
             autocorrect: true,
+            textInputAction: TextInputAction.next,
+            textCapitalization: TextCapitalization.words,
             autofillHints: const [AutofillHints.name],
             textLabel: context.t.auth.firstName,
             inputFormatters: [LengthLimitingTextInputFormatter(50)],
@@ -53,8 +55,9 @@ class RegisterPersonalDataInput extends StatelessWidget {
             controller: _lastNameController,
             autocorrect: false,
             textLabel: context.t.auth.lastName,
+            textCapitalization: TextCapitalization.words,
+            textInputAction: TextInputAction.next,
             inputFormatters: [LengthLimitingTextInputFormatter(50)],
-            onSaved: (_) => _onSaved(),
             autofillHints: const [AutofillHints.familyName],
             decoration: InputDecoration(hintText: context.t.auth.lastName),
           ),
@@ -63,7 +66,6 @@ class RegisterPersonalDataInput extends StatelessWidget {
             readOnly: true,
             controller: _dayOfBirthNameController,
             onTap: () => _onDateTap(context),
-            onSaved: (_) => _onSaved(),
             textLabel: context.t.auth.dateOfBirthLabel,
             decoration: InputDecoration(
               hintText: context.t.auth.dateOfBirthHint,
@@ -92,15 +94,14 @@ class RegisterPersonalDataInput extends StatelessWidget {
     );
 
     if (resultDate?.isNotEmpty ?? false) {
-      _dayOfBirthNameController.text =
-          DateFormat.yMd().format(resultDate!.first!);
+      _dayOfBirthNameController.text = DateFormat('y-MM-d').format(resultDate!.first!);
     }
   }
 
   void _onSaved() {
     onSaved.call(
-      _firstNameController.value.text,
-      _lastNameController.value.text,
+      _firstNameController.value.text.isEmpty ? null : _firstNameController.value.text,
+      _lastNameController.value.text.isEmpty ? null : _lastNameController.value.text,
       DateTime.tryParse(_dayOfBirthNameController.value.text),
     );
   }

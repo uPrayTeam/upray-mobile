@@ -46,11 +46,12 @@ ThemeData get defaultAppTheme => ThemeData(
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        constraints: BoxConstraints.tight(
-          const Size.fromHeight(70),
+        constraints: const BoxConstraints(
+          maxHeight: 90.0,
+          minHeight: 70.0,
         ),
         hintStyle: const TextStyle(color: AppColors.hintColor),
-        errorStyle: const TextStyle(height: 0.5),
+        errorStyle: const TextStyle(height: 1),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: _inputBorder(AppColors.lightGray),
         disabledBorder: _inputBorder(AppColors.lightGray),
@@ -70,8 +71,7 @@ ThemeData get defaultAppTheme => ThemeData(
       ),
     );
 
-OutlineInputBorder _inputBorder(final Color color, {final double? width}) =>
-    OutlineInputBorder(
+OutlineInputBorder _inputBorder(final Color color, {final double? width}) => OutlineInputBorder(
       borderSide: BorderSide(color: color, width: width ?? 1.0),
       borderRadius: BorderRadius.circular(12.0),
     );

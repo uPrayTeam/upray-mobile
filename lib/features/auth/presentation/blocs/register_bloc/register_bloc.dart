@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:upray_mobile/core/errors/failure.dart';
+import 'package:upray_mobile/core/utils/media_picker/media_file.dart';
 import 'package:upray_mobile/features/auth/data/models/params/register_user_params_model.dart';
 import 'package:upray_mobile/features/auth/domain/use_cases/register_user_use_case.dart';
 
@@ -11,6 +12,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc({required this.registerUserUseCase}) : super(RegisterInitialState()) {
     on<AddPersonalDataRegisterEvent>(_onPersonalData);
     on<AddAccountDataRegisterEvent>(_onAccountData);
+    on<AddUserAvatarRegisterEvent>(_onAddAvatar);
     on<RegisterUserEvent>(_onRegisterUser);
   }
 
@@ -25,7 +27,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       dateOfBirth: event.dateOfBirth,
     );
 
-    emit(RegisterPersonalSuccessState());
+    emit(RegisterPersonalDataSuccessState());
   }
 
   _onAccountData(AddAccountDataRegisterEvent event, Emitter emit) async {
@@ -34,7 +36,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       password: event.password,
     );
 
-    emit(RegisterAccountSuccessState());
+    emit(RegisterAccountDataSuccessState());
+  }
+
+  _onAddAvatar(AddUserAvatarRegisterEvent event, Emitter emit) async {
+    _registerUserParams = _registerUserParams.copyWith(userAvatarFile: event.userAvatar);
+
+    emit(RegisterAvatarSuccessState());
   }
 
   _onRegisterUser(RegisterUserEvent event, Emitter emit) async {

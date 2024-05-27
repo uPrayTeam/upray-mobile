@@ -142,7 +142,7 @@ class _LogInPageState extends State<LogInPage> {
             LogInUserAuthEvent(
               params: LogInParamsModel(
                 password: _passwordController.value.text.weakHashString,
-                email: _emailController.value.text,
+                email: _emailController.value.text.trim(),
               ),
             ),
           );

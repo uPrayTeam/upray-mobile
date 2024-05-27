@@ -1,3 +1,4 @@
+import 'package:upray_mobile/core/utils/media_picker/media_file.dart';
 import 'package:upray_mobile/features/auth/domain/entities/params/register_user_params.dart';
 
 class RegisterUserParamsModel extends RegisterUserParams {
@@ -7,6 +8,7 @@ class RegisterUserParamsModel extends RegisterUserParams {
     this.firstName,
     this.lastName,
     this.dateOfBirth,
+    this.userAvatarFile,
   });
 
   @override
@@ -25,13 +27,35 @@ class RegisterUserParamsModel extends RegisterUserParams {
   final DateTime? dateOfBirth;
 
   @override
+  final MediaFile? userAvatarFile;
+
+  @override
   List<Object?> get props => [
         email,
         password,
         firstName,
         lastName,
         dateOfBirth,
+        userAvatarFile,
       ];
+
+  RegisterUserParamsModel copyWith({
+    String? email,
+    String? password,
+    String? firstName,
+    String? lastName,
+    DateTime? dateOfBirth,
+    MediaFile? userAvatarFile,
+  }) {
+    return RegisterUserParamsModel(
+      email: email ?? this.email,
+      password: password ?? this.password,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      userAvatarFile: userAvatarFile ?? this.userAvatarFile,
+    );
+  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -40,22 +64,18 @@ class RegisterUserParamsModel extends RegisterUserParams {
       'firstName': firstName,
       'lastName': lastName,
       'dateOfBirth': dateOfBirth,
+      'userAvatarFile': userAvatarFile,
     };
   }
 
-  RegisterUserParamsModel copyWith({
-    String? email,
-    String? password,
-    String? firstName,
-    String? lastName,
-    DateTime? dateOfBirth,
-  }) {
+  factory RegisterUserParamsModel.fromMap(Map<String, dynamic> map) {
     return RegisterUserParamsModel(
-      email: email ?? this.email,
-      password: password ?? this.password,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
-      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
+      email: map['email'] as String,
+      password: map['password'] as String,
+      firstName: map['firstName'] as String,
+      lastName: map['lastName'] as String,
+      dateOfBirth: map['dateOfBirth'] as DateTime,
+      userAvatarFile: map['userAvatarFile'] as MediaFile,
     );
   }
 }

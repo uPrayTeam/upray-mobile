@@ -1,9 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:upray_mobile/core/app_config.dart';
 import 'package:upray_mobile/core/logger/logger.dart';
+import 'package:upray_mobile/core/presentation/blocs/media_picker_bloc/media_picker_bloc.dart';
 import 'package:upray_mobile/core/router/router.dart';
+import 'package:upray_mobile/core/utils/media_picker/media_picker.dart';
 import 'package:upray_mobile/features/auth/injection_container.dart';
 
 final sl = GetIt.instance;
@@ -46,5 +50,16 @@ abstract class Injector {
 
       return logger;
     });
+
+    sl.registerFactory<ImagePicker>(() => ImagePicker());
+    sl.registerFactory<ImageCropper>(() => ImageCropper());
+    sl.registerFactory<MediaPicker>(
+      () => MediaPicker(
+        imagePicker: sl(),
+        imageCropper: sl(),
+      ),
+    );
+
+    sl.registerFactory<MediaPickerBloc>(() => MediaPickerBloc(mediaPicker: sl()));
   }
 }

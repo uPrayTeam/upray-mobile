@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:upray_mobile/core/presentation/style/app_colors.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
+import 'package:upray_mobile/core/utils/media_picker/media_file.dart';
 import 'package:upray_mobile/features/auth/presentation/blocs/register_bloc/register_bloc.dart';
 import 'package:upray_mobile/features/auth/presentation/pages/register_page_view/register_acount_data_input.dart';
+import 'package:upray_mobile/features/auth/presentation/pages/register_page_view/register_avatar_input.dart';
 import 'package:upray_mobile/features/auth/presentation/pages/register_page_view/register_personal_data_input.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 import 'package:upray_mobile/injection_container.dart';
@@ -23,6 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final _accountKey = GlobalKey<FormState>();
   final _personalKey = GlobalKey<FormState>();
+  final ValueNotifier<int> _page = ValueNotifier<int>(0);
 
   @override
   void initState() {
@@ -58,6 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Expanded(
                     child: PageView(
+                      onPageChanged: (currentPage) => _page.value = currentPage,
                       physics: const NeverScrollableScrollPhysics(),
                       controller: _pageController,
                       children: [
@@ -84,12 +88,18 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: RegisterAvatarInput(
+                            onPicked: (mediaFile) => _onAvatarPicked(context, mediaFile: mediaFile),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   SmoothPageIndicator(
                     controller: _pageController,
-                    count: 2,
+                    count: 3,
                     effect: JumpingDotEffect(
                       verticalOffset: 10.0,
                       activeDotColor: Theme.of(context).colorScheme.secondary,
@@ -101,9 +111,16 @@ class _RegisterPageState extends State<RegisterPage> {
                   const Gap(16),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ElevatedButton(
-                      onPressed: () => _onNextButtonPressed(context),
-                      child: Text(t.auth.nextStep),
+                    child: ValueListenableBuilder<int>(
+                      builder: (context, page, _) {
+                        return ElevatedButton(
+                          onPressed: () => page == 2 ? _onRegister(context) : _onNextButtonPressed(context),
+                          child: Text(
+                            page == 2 ? context.t.auth.signUp : context.t.auth.nextStep,
+                          ),
+                        );
+                      },
+                      valueListenable: _page,
                     ),
                   ),
                 ],
@@ -141,9 +158,16 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           );
 
+  _onAvatarPicked(BuildContext context, {required final MediaFile mediaFile}) {
+    context.read<RegisterBloc>().add(AddUserAvatarRegisterEvent(userAvatar: mediaFile));
+  }
+
   _onBackButtonPressed(BuildContext context) {
     if ((_pageController.page ?? 0) > 0) {
-      _pageController.previousPage(duration: Durations.medium2, curve: Curves.ease);
+      _pageController.previousPage(
+        duration: Durations.medium2,
+        curve: Curves.ease,
+      );
     } else {
       context.router.maybePop();
     }
@@ -153,25 +177,21 @@ class _RegisterPageState extends State<RegisterPage> {
     if (_pageController.page == 0) {
       if (_accountKey.currentState!.validate()) {
         _accountKey.currentState!.save();
-        _pageController.animateToPage(
-          1,
+        _pageController.nextPage(
           duration: Durations.medium2,
           curve: Curves.ease,
         );
       }
+    } else if (_pageController.page == 1) {
+      _personalKey.currentState!.save();
+      _pageController.nextPage(
+        duration: Durations.medium2,
+        curve: Curves.ease,
+      );
     }
   }
 
   _onRegister(BuildContext context) {
-    if (_pageController.page == 0) {
-      if (_accountKey.currentState!.validate()) {
-        _accountKey.currentState!.save();
-        _pageController.animateToPage(
-          1,
-          duration: Durations.medium2,
-          curve: Curves.ease,
-        );
-      }
-    }
+    context.read<RegisterBloc>().add(RegisterUserEvent());
   }
 }

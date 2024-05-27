@@ -9,12 +9,17 @@ class RegisterInitialState extends RegisterState {
   List<Object> get props => [];
 }
 
-class RegisterPersonalSuccessState extends RegisterState {
+class RegisterPersonalDataSuccessState extends RegisterState {
   @override
   List<Object> get props => [];
 }
 
-class RegisterAccountSuccessState extends RegisterState {
+class RegisterAccountDataSuccessState extends RegisterState {
+  @override
+  List<Object> get props => [];
+}
+
+class RegisterAvatarSuccessState extends RegisterState {
   @override
   List<Object> get props => [];
 }

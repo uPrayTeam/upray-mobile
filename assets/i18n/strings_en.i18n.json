@@ -3,9 +3,14 @@
   "validators": {
     "fieldCannotBeEmpty": "Field cannot be empty.",
     "passTooShort": "Password is too short.",
-    "passMustContainChar": "Password must contain at least one number.",
+    "passMustContainChar": "Password must contain at least one digit, one upper case, one lower case and one special character.",
     "passwordCannotBeEmpty": "Password cannot be empty.",
-    "passwordsAreNotTheSame": "Passwords are not the same."
+    "passwordsAreNotTheSame": "Passwords are not the same.",
+    "emailInvalid": "E-mail is invalid."
+  },
+  "utils": {
+    "pickAPhoto": "Select image",
+    "changeImage": "Change image"
   },
   "auth": {
     "signIn": "Sign in",
@@ -33,7 +38,9 @@
     "dateOfBirthLabel": "Date of birth",
     "dateOfBirthHint": "Date of birth",
     "makeTheJourneyYours": "Make the journey Yours",
-    "personalDataHeader": "Introduce yourself to make using uPray a unique experience."
+    "personalDataHeader": "Introduce yourself to make using uPray a unique experience.",
+    "avatarHeader": "Show the world that you are not ashamed of your beliefs. ",
+    "avatarQuote": "Thousands of people, just like you"
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",

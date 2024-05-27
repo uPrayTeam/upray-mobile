@@ -31,6 +31,7 @@ class RegisterAccountDataInput extends StatelessWidget {
             context.t.auth.changeYourLife,
             style: Theme.of(context).textTheme.displayMedium,
           ),
+          const Gap(4.0),
           Text(
             context.t.auth.registerHeader,
             style: Theme.of(context).textTheme.titleLarge,
@@ -48,6 +49,7 @@ class RegisterAccountDataInput extends StatelessWidget {
                   autofillHints: const [AutofillHints.email],
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: Validators.emailValidator,
+                  textInputAction: TextInputAction.next,
                   onSaved: (_) => _onSaved(),
                   inputFormatters: [LengthLimitingTextInputFormatter(70)],
                   decoration: InputDecoration(
@@ -61,11 +63,11 @@ class RegisterAccountDataInput extends StatelessWidget {
                   textLabel: context.t.auth.passwordLabel,
                   autocorrect: false,
                   autofillHints: const [AutofillHints.email],
+                  textInputAction: TextInputAction.next,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: Validators.passwordValidator,
                   inputFormatters: [LengthLimitingTextInputFormatter(100)],
                   obscureText: true,
-                  onSaved: (_) => _onSaved(),
                   decoration: InputDecoration(
                     hintText: t.auth.passwordHint,
                   ),
@@ -74,12 +76,12 @@ class RegisterAccountDataInput extends StatelessWidget {
                 CustomTextFormField(
                   controller: _repeatPasswordController,
                   isRequired: true,
-                  onSaved: (_) => _onSaved(),
                   textLabel: context.t.auth.repeatPasswordLabel,
                   autocorrect: false,
                   autofillHints: const [AutofillHints.email],
                   inputFormatters: [LengthLimitingTextInputFormatter(100)],
                   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  textInputAction: TextInputAction.done,
                   obscureText: true,
                   validator: (value) => Validators.repeatPasswordValidator(
                     value,
@@ -100,7 +102,7 @@ class RegisterAccountDataInput extends StatelessWidget {
 
   void _onSaved() {
     onSaved.call(
-      _emailController.value.text,
+      _emailController.value.text.trim(),
       _passwordController.value.text.weakHashString,
     );
   }

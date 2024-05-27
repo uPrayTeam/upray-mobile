@@ -32,6 +32,17 @@ class AddPersonalDataRegisterEvent extends RegisterEvent {
   List<Object?> get props => [firstName, lastName, dateOfBirth];
 }
 
+class AddUserAvatarRegisterEvent extends RegisterEvent {
+  final MediaFile userAvatar;
+
+  const AddUserAvatarRegisterEvent({
+    required this.userAvatar,
+  });
+
+  @override
+  List<Object?> get props => [userAvatar];
+}
+
 class RegisterUserEvent extends RegisterEvent {
   @override
   List<Object> get props => [];
