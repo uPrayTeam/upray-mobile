@@ -8,7 +8,7 @@ import 'package:upray_mobile/core/router/router.gr.dart';
 import 'package:upray_mobile/core/utils/extensions.dart';
 import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:upray_mobile/features/auth/data/models/params/log_in_params_model.dart';
-import 'package:upray_mobile/features/auth/presentation/blocs/auth_bloc/auth_bloc.dart';
+import 'package:upray_mobile/features/auth/presentation/blocs/login_bloc/login_bloc.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 import 'package:upray_mobile/injection_container.dart';
 
@@ -44,7 +44,7 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<AuthBloc>(),
+      create: (context) => sl<LoginBloc>(),
       child: Builder(
         builder: (context) {
           return Scaffold(
@@ -65,8 +65,7 @@ class _LogInPageState extends State<LogInPage> {
                           child: Text(
                             t.appName,
                             textAlign: TextAlign.center,
-                            style:
-                                Theme.of(context).primaryTextTheme.displayLarge,
+                            style: Theme.of(context).primaryTextTheme.displayLarge,
                           ),
                         ),
                         CustomTextFormField(
@@ -76,8 +75,7 @@ class _LogInPageState extends State<LogInPage> {
                           autofillHints: const [AutofillHints.email],
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           validator: Validators.emailValidator,
-                          decoration:
-                              InputDecoration(hintText: t.auth.emailHint),
+                          decoration: InputDecoration(hintText: t.auth.emailHint),
                         ),
                         const Gap(16.0),
                         CustomTextFormField(
@@ -88,16 +86,14 @@ class _LogInPageState extends State<LogInPage> {
                           validator: Validators.emptyValidator,
                           obscureText: true,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                          decoration:
-                              InputDecoration(hintText: t.auth.passwordHint),
+                          decoration: InputDecoration(hintText: t.auth.passwordHint),
                         ),
                         const Gap(16.0),
                         RichText(
                           text: TextSpan(
                               style: Theme.of(context).textTheme.bodyMedium,
                               text: t.auth.forgotYourPassword,
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () => _onForgotPassword(context)),
+                              recognizer: TapGestureRecognizer()..onTap = () => _onForgotPassword(context)),
                         ),
                         const Gap(32.0),
                         const Spacer(),
@@ -113,13 +109,9 @@ class _LogInPageState extends State<LogInPage> {
                             text: t.auth.dontHaveAnAccount,
                             children: [
                               TextSpan(
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(fontWeight: FontWeight.w600),
+                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
                                 text: t.auth.signUp,
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () => _onRegisterTap(context),
+                                recognizer: TapGestureRecognizer()..onTap = () => _onRegisterTap(context),
                               ),
                             ],
                           ),
@@ -146,10 +138,10 @@ class _LogInPageState extends State<LogInPage> {
 
   void _onSubmit(BuildContext context) {
     if (_formKey.currentState!.validate()) {
-      context.read<AuthBloc>().add(
+      context.read<LoginBloc>().add(
             LogInUserAuthEvent(
               params: LogInParamsModel(
-                password: _passwordController.value.text.hashString,
+                password: _passwordController.value.text.weakHashString,
                 email: _emailController.value.text,
               ),
             ),

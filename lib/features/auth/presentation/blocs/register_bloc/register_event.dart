@@ -31,3 +31,8 @@ class AddPersonalDataRegisterEvent extends RegisterEvent {
   @override
   List<Object?> get props => [firstName, lastName, dateOfBirth];
 }
+
+class RegisterUserEvent extends RegisterEvent {
+  @override
+  List<Object> get props => [];
+}

@@ -101,7 +101,7 @@ class RegisterAccountDataInput extends StatelessWidget {
   void _onSaved() {
     onSaved.call(
       _emailController.value.text,
-      _passwordController.value.text.hashString,
+      _passwordController.value.text.weakHashString,
     );
   }
 }

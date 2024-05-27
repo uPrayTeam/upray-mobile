@@ -9,6 +9,6 @@ class LogOutUseCase extends UseCase<Success, NoParams> {
 
   @override
   FutureFailable<Success> call(NoParams params) {
-    throw Exception();
+    return authRepository.logOut();
   }
 }

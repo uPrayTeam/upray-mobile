@@ -37,6 +37,8 @@
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",
-    "logOutFailure": "There was an error with logging out."
+    "logOutFailure": "There was an error with logging out.",
+    "saveTokenFailure": "Failed saving token",
+    "registerUserFailure": "There was an error with signing up"
   }
 }

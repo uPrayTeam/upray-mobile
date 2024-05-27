@@ -5,12 +5,11 @@ import 'package:upray_mobile/features/auth/domain/entities/params/log_in_params.
 import 'package:upray_mobile/features/auth/domain/use_cases/log_in_use_case.dart';
 import 'package:upray_mobile/features/auth/domain/use_cases/log_out_use_case.dart';
 
-part 'auth_event.dart';
-part 'auth_state.dart';
+part 'login_event.dart';
+part 'login_state.dart';
 
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc({required this.logInUseCase, required this.logOutUseCase})
-      : super(AuthLoggedOutState()) {
+class LoginBloc extends Bloc<LoginEvent, LoginState> {
+  LoginBloc({required this.logInUseCase, required this.logOutUseCase}) : super(LoginLoggedOutState()) {
     on<LogInUserAuthEvent>(_onLogIn);
     on<LogOutUserAuthEvent>(_onLogOut);
   }
@@ -22,8 +21,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final result = await logInUseCase(event.params);
 
     result.fold(
-      (failure) => emit(AuthErrorState(failure: failure)),
-      (data) => emit(AuthLoggedInState()),
+      (failure) => emit(LoginErrorState(failure: failure)),
+      (data) => emit(LoginLoggedInState()),
     );
   }
 

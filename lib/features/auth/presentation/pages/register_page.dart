@@ -76,9 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: RegisterPersonalDataInput(
                             formKey: _personalKey,
-                            onSaved: (String? firstName, String? lastName,
-                                    DateTime? dateOfBirth) =>
-                                _onPersonalSaved(
+                            onSaved: (String? firstName, String? lastName, DateTime? dateOfBirth) => _onPersonalSaved(
                               context,
                               firstName: firstName,
                               lastName: lastName,
@@ -104,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ElevatedButton(
-                      onPressed: () => _onButtonPressed(context),
+                      onPressed: () => _onNextButtonPressed(context),
                       child: Text(t.auth.nextStep),
                     ),
                   ),
@@ -145,14 +143,26 @@ class _RegisterPageState extends State<RegisterPage> {
 
   _onBackButtonPressed(BuildContext context) {
     if ((_pageController.page ?? 0) > 0) {
-      _pageController.previousPage(
-          duration: Durations.medium2, curve: Curves.ease);
+      _pageController.previousPage(duration: Durations.medium2, curve: Curves.ease);
     } else {
       context.router.maybePop();
     }
   }
 
-  _onButtonPressed(BuildContext context) {
+  _onNextButtonPressed(BuildContext context) {
+    if (_pageController.page == 0) {
+      if (_accountKey.currentState!.validate()) {
+        _accountKey.currentState!.save();
+        _pageController.animateToPage(
+          1,
+          duration: Durations.medium2,
+          curve: Curves.ease,
+        );
+      }
+    }
+  }
+
+  _onRegister(BuildContext context) {
     if (_pageController.page == 0) {
       if (_accountKey.currentState!.validate()) {
         _accountKey.currentState!.save();
