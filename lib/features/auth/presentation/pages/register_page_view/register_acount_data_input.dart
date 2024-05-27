@@ -7,7 +7,7 @@ import 'package:upray_mobile/core/utils/validator.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 
 class RegisterAccountDataInput extends StatelessWidget {
-  RegisterAccountDataInput({required this.onSaved, required this.formKey});
+  RegisterAccountDataInput({super.key, required this.onSaved, required this.formKey});
 
   final Function(
     String email,

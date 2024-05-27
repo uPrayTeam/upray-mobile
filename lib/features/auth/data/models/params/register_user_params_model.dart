@@ -57,6 +57,7 @@ class RegisterUserParamsModel extends RegisterUserParams {
     );
   }
 
+  @override
   Map<String, dynamic> toMap() {
     return {
       'email': email,

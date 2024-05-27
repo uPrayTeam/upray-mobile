@@ -3,7 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:upray_mobile/core/presentation/style/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({
+  const CustomTextFormField({
+    super.key,
     this.controller,
     this.autocorrect,
     this.autofillHints,
