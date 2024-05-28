@@ -32,7 +32,6 @@ class Logger extends Talker {
 
   void logConfig({required AppConfig config, required Talker talker}) {
     talker.debug('Selected flavor - ${config.flavor.name}');
-    talker.debug(
-        'API Server URL - ${config.api.isNotEmpty ? config.api : 'NONE'}');
+    talker.debug('API Server URL - ${config.api.isNotEmpty ? config.api : 'NONE'}');
   }
 }
