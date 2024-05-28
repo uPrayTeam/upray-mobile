@@ -1,0 +1,9 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: true
+
+  color: "#223263"
+  image: assets/images/uPray_LOGO.png
+  android_gravity: center
+  ios_content_mode: center

@@ -15,6 +15,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  flutter_native_splash: ^2.4.0
   cupertino_icons: ^1.0.8
   flutter_flavorizr: ^2.2.3
   bloc: ^8.1.4
@@ -48,6 +49,8 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   image_picker: ^1.1.1
   image_cropper: ^5.0.1
+
+
 
 dev_dependencies:
   flutter_test:
