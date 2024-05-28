@@ -36,6 +36,17 @@ ThemeData get defaultAppTheme => ThemeData(
         primaryContainer: AppColors.darkBLue,
         brightness: Brightness.dark,
       ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          side: const BorderSide(width: 2.0, color: AppColors.yellowGold),
+          foregroundColor: AppColors.yellowGold,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          minimumSize: const Size.fromHeight(56.0),
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
@@ -43,6 +54,7 @@ ThemeData get defaultAppTheme => ThemeData(
           ),
           minimumSize: MaterialStateProperty.all(const Size.fromHeight(56.0)),
           backgroundColor: AppColors.yellowGold.materialStateProperty,
+          foregroundColor: AppColors.textDarkBlue.materialStateProperty,
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(

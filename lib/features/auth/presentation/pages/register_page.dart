@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:upray_mobile/core/presentation/style/app_colors.dart';
+import 'package:upray_mobile/core/presentation/widgets/default_app_bar.dart';
 import 'package:upray_mobile/core/presentation/widgets/gap.dart';
 import 'package:upray_mobile/core/utils/media_picker/media_file.dart';
 import 'package:upray_mobile/features/auth/presentation/blocs/register_bloc/register_bloc.dart';
@@ -46,11 +47,9 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Builder(builder: (context) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            title: Text(context.t.auth.createNewAccount),
-            leading: BackButton(
-              onPressed: () => _onBackButtonPressed(context),
-            ),
+          appBar: DefaultAppBar(
+            title: context.t.auth.createNewAccount,
+            onBack: () => _onBackButtonPressed(context),
           ),
           body: SafeArea(
             child: Padding(

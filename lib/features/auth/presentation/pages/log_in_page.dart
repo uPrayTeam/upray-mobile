@@ -62,6 +62,7 @@ class _LogInPageState extends State<LogInPage> {
                       children: [
                         const Spacer(),
                         Expanded(
+                          flex: 2,
                           child: Text(
                             t.appName,
                             textAlign: TextAlign.center,
@@ -97,6 +98,11 @@ class _LogInPageState extends State<LogInPage> {
                         ),
                         const Gap(32.0),
                         const Spacer(),
+                        OutlinedButton(
+                          onPressed: () => _onJustPray(context),
+                          child: Text(t.auth.justPray),
+                        ),
+                        const Gap(16.0),
                         ElevatedButton(
                           onPressed: () => _onSubmit(context),
                           child: Text(t.auth.signIn),
@@ -126,6 +132,10 @@ class _LogInPageState extends State<LogInPage> {
         },
       ),
     );
+  }
+
+  void _onJustPray(BuildContext context) {
+    context.router.push(const RosaryRoute());
   }
 
   void _onForgotPassword(BuildContext context) {

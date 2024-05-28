@@ -13,6 +13,7 @@
     "changeImage": "Change image"
   },
   "auth": {
+    "justPray": "Just pray",
     "signIn": "Sign in",
     "emailHint": "E-mail",
     "emailLabel": "E-mail",
@@ -41,6 +42,10 @@
     "personalDataHeader": "Introduce yourself to make using uPray a unique experience.",
     "avatarHeader": "Show the world that you are not ashamed of your beliefs. ",
     "avatarQuote": "Thousands of people, just like you"
+  },
+  "rosary": {
+    "rosaryPrayer": "Rosary prayer",
+    "pray": "Pray"
   },
   "failures": {
     "logInFailure": "There was an error with logging in.",

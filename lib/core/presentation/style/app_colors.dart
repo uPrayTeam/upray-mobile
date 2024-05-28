@@ -18,3 +18,19 @@ extension MaterialStateExtension on Color {
     return MaterialStateProperty.all<Color>(this);
   }
 }
+
+extension ToneExtension on Color {
+  Color get dark {
+    final hsl = HSLColor.fromColor(this);
+    final hslDark = hsl.withLightness((hsl.lightness - 0.1).clamp(0.0, 1.0));
+
+    return hslDark.toColor();
+  }
+
+  Color get light {
+    final hsl = HSLColor.fromColor(this);
+    final hslDark = hsl.withLightness((hsl.lightness + 0.1).clamp(0.0, 1.0));
+
+    return hslDark.toColor();
+  }
+}

@@ -9,12 +9,13 @@ import 'package:upray_mobile/core/presentation/blocs/media_picker_bloc/media_pic
 import 'package:upray_mobile/core/router/router.dart';
 import 'package:upray_mobile/core/utils/media_picker/media_picker.dart';
 import 'package:upray_mobile/features/auth/injection_container.dart';
+import 'package:upray_mobile/features/rosary/injection_container.dart';
 
 final sl = GetIt.instance;
 
 const globalDio = 'global';
 
-class InjectionContainer extends Injector with AuthInjector {}
+class InjectionContainer extends Injector with AuthInjector, RosaryInjector {}
 
 abstract class Injector {
   @mustCallSuper
