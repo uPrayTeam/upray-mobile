@@ -56,8 +56,7 @@ class AuthTokenModel extends AuthToken {
       token: token ?? this.token,
       refreshToken: refreshToken ?? this.refreshToken,
       tokenValidUntil: tokenValidUntil ?? this.tokenValidUntil,
-      refreshTokenValidUntil:
-          refreshTokenValidUntil ?? this.refreshTokenValidUntil,
+      refreshTokenValidUntil: refreshTokenValidUntil ?? this.refreshTokenValidUntil,
     );
   }
 }

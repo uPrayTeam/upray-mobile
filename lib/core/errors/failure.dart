@@ -24,3 +24,13 @@ class LogOutFailure extends Failure {
   @override
   String get errorMessage => t.failures.logOutFailure;
 }
+
+class RegisterUserFailure extends Failure {
+  @override
+  String get errorMessage => t.failures.registerUserFailure;
+}
+
+class SaveTokenFailure extends Failure {
+  @override
+  String get errorMessage => t.failures.saveTokenFailure;
+}

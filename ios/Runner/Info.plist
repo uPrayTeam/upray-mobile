@@ -20,6 +20,10 @@
     <string>$(FLUTTER_BUILD_NAME)</string>
     <key>CFBundleSignature</key>
     <string>????</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Our app requires access to your photo library so you can easily select and set a personalized avatar picture. This allows you to customize your profile and enhance your user experience. We respect your privacy and will only access the photos you choose.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Our app requires access to your camera so you can take a photo and set a personalized avatar picture. This allows you to customize your profile and enhance your user experience. We respect your privacy and will only use the camera when you choose to take a photo.</string>
     <key>CFBundleVersion</key>
     <string>$(FLUTTER_BUILD_NUMBER)</string>
     <key>LSRequiresIPhoneOS</key>

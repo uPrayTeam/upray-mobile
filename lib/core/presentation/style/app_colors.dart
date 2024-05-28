@@ -10,6 +10,7 @@ abstract class AppColors {
   static const Color lightGray = Color.fromRGBO(180, 196, 217, 1);
   static const Color grey = Color.fromRGBO(160, 176, 197, 1);
   static const Color hintColor = Color.fromRGBO(34, 50, 99, 0.5);
+  static const Color red = Colors.red;
 }
 
 extension MaterialStateExtension on Color {

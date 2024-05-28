@@ -11,6 +11,10 @@ ThemeData get defaultAppTheme => ThemeData(
           ),
         ),
       ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.yellowGold,
+      ),
       textTheme: GoogleFonts.acmeTextTheme(
         const TextTheme(
           labelLarge: TextStyle(fontSize: 22.0),
@@ -19,6 +23,10 @@ ThemeData get defaultAppTheme => ThemeData(
             color: AppColors.yellowGold,
           ),
           bodyLarge: TextStyle(color: AppColors.textDarkBlue),
+          bodyMedium: TextStyle(color: AppColors.whiteColor, fontSize: 16.0),
+          displayMedium: TextStyle(color: AppColors.whiteColor),
+          titleLarge: TextStyle(color: AppColors.whiteColor),
+          labelMedium: TextStyle(color: AppColors.yellowGold, fontSize: 14.0),
         ),
       ),
       scaffoldBackgroundColor: AppColors.darkBLue,
@@ -38,11 +46,12 @@ ThemeData get defaultAppTheme => ThemeData(
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        constraints: BoxConstraints.tight(
-          const Size.fromHeight(70),
+        constraints: const BoxConstraints(
+          maxHeight: 90.0,
+          minHeight: 70.0,
         ),
         hintStyle: const TextStyle(color: AppColors.hintColor),
-        errorStyle: const TextStyle(height: 0.5),
+        errorStyle: const TextStyle(height: 1),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: _inputBorder(AppColors.lightGray),
         disabledBorder: _inputBorder(AppColors.lightGray),
@@ -62,8 +71,7 @@ ThemeData get defaultAppTheme => ThemeData(
       ),
     );
 
-OutlineInputBorder _inputBorder(final Color color, {final double? width}) =>
-    OutlineInputBorder(
+OutlineInputBorder _inputBorder(final Color color, {final double? width}) => OutlineInputBorder(
       borderSide: BorderSide(color: color, width: width ?? 1.0),
       borderRadius: BorderRadius.circular(12.0),
     );
