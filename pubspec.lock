@@ -37,10 +37,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: ecf4273855368121b1caed0d10d4513c7241dfc813f7d3c8933b36622ae9b265
+      sha256: "6bd38d335f0954f5fad9c79e614604fbf03a0e5b975923dd001b6ea965ef5b4b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.1"
+    version: "3.6.0"
   args:
     dependency: transitive
     description:
@@ -633,10 +633,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "4c68bfd5ae83e700b5204c1e74451e7bf3cf750e6843c6e158289cf56bda018e"
+      sha256: "2237616a36c0d69aef7549ab439b833fb7f9fb9fc861af2cc9ac3eedddd69ca8"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.7"
+    version: "4.2.0"
   image_cropper:
     dependency: "direct main"
     description:
@@ -993,10 +993,10 @@ packages:
     dependency: transitive
     description:
       name: pubspec_parse
-      sha256: c63b2876e58e194e4b0828fcb080ad0e06d051cb607a6be51a9e084f47cb9367
+      sha256: c799b721d79eb6ee6fa56f00c04b472dcd44a30d258fac2174a6ec57302678f8
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.3"
+    version: "1.3.0"
   rxdart:
     dependency: transitive
     description:
@@ -1046,26 +1046,26 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: ad2a3974fa705017d40e59f9fce5ba738ce78a40c13247bf655d1760d3af018f
+      sha256: "0d8a8cbfd7858ed2bd9164a79bfb664ea83f1e124740b28acd0618757fc87ecc"
       url: "https://pub.dev"
     source: hosted
-    version: "3.30.2"
+    version: "3.31.0"
   slang_build_runner:
     dependency: "direct main"
     description:
       name: slang_build_runner
-      sha256: "2daff2deb2ab8d557a2e7de5405c0ee1376afba5d0231570c2d2c3c56da8a692"
+      sha256: "6e60160e8000b91824c47221b20d9642e7408287a5a21837ecefc75270197586"
       url: "https://pub.dev"
     source: hosted
-    version: "3.30.0"
+    version: "3.31.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: "9ee040b0d364d3a4d692e4af536acff6ef513870689403494ebc6d59b0dccea6"
+      sha256: f8400292be49c11697d94af58d7f7d054c91af759f41ffe71e4e5413871ffc62
       url: "https://pub.dev"
     source: hosted
-    version: "3.30.0"
+    version: "3.31.0"
   smooth_page_indicator:
     dependency: "direct main"
     description:
@@ -1158,34 +1158,34 @@ packages:
     dependency: transitive
     description:
       name: talker
-      sha256: edd1ec2d1e941ac1569f27d820cd896e0dc9bc4e4160963e3c8c192079f08da0
+      sha256: f876081a34027464e3f1ac785c7e470a5fca2515f4c8c277fb6f78a63e5cda1e
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.3"
   talker_bloc_logger:
     dependency: "direct main"
     description:
       name: talker_bloc_logger
-      sha256: "5756889ea6e6790aefc1536a5c9ef33fc989d1064655eff07958625ca6098896"
+      sha256: "98ac511c36987f7131ff6f01f40fc04d47a3016551898267462bbc37bf3734f5"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.3"
   talker_dio_logger:
     dependency: "direct main"
     description:
       name: talker_dio_logger
-      sha256: ff10ae1294383cdc50f3b7432a6ca623d7634cf0f3c669d8897f948a06c3fd56
+      sha256: "54e03a5531d385932d34141012ee2fdd7302e01bdbfaf1867e3badf2583b89f8"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.3"
   talker_logger:
     dependency: "direct main"
     description:
       name: talker_logger
-      sha256: "777c62bb8019ec26f5b99626fe0bd28e169bae724ffde8438a5e4ad28e2c20df"
+      sha256: "8728b67e97a2cd484ed217ec9dca1e05063aa6c9464a1c095e77540f944b1c8a"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.3"
   term_glyph:
     dependency: transitive
     description:

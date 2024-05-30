@@ -63,3 +63,5 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/uPray_LOGO.gif
+    - assets/images/uPray_LOGO.png
