@@ -25,6 +25,7 @@ ThemeData get defaultAppTheme => ThemeData(
           bodyLarge: TextStyle(color: AppColors.textDarkBlue),
           bodyMedium: TextStyle(color: AppColors.whiteColor, fontSize: 16.0),
           displayMedium: TextStyle(color: AppColors.whiteColor),
+          displaySmall: TextStyle(color: AppColors.whiteColor, fontSize: 20.0),
           titleLarge: TextStyle(color: AppColors.whiteColor),
           labelMedium: TextStyle(color: AppColors.yellowGold, fontSize: 14.0),
         ),

@@ -4,6 +4,10 @@ Mobile uPray flutter project - the rosary app.
 
 # Instructions
 
+## line length
+
+`120`
+
 To build the app make sure you are using right flutter version. I suggest using fvm.
 
 run the following commands:

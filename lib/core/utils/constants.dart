@@ -3,6 +3,8 @@ class Constants {
   static const String hashKeySalt = 'H8t83@@S#6%#*jh7SXmH';
 
   static const int minPassLength = 8;
+
+  static const int rosaryLength = 60;
 }
 
 class StorageConstants {

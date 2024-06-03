@@ -1,11 +1,12 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:upray_mobile/core/presentation/style/app_colors.dart';
 import 'package:upray_mobile/gen/strings.g.dart';
 
 class PrayButton extends StatefulWidget {
-  const PrayButton({Key? key}) : super(key: key);
+  const PrayButton({Key? key, required this.onPressed}) : super(key: key);
+
+  final VoidCallback onPressed;
 
   @override
   State<PrayButton> createState() => _PrayButtonState();
@@ -14,7 +15,7 @@ class PrayButton extends StatefulWidget {
 class _PrayButtonState extends State<PrayButton> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _animation;
-  late Animation<Color?> _colorAnimation = const AlwaysStoppedAnimation(null);
+  late Animation<Color?> _colorAnimation;
   final ValueNotifier<bool> _isPressed = ValueNotifier<bool>(false);
 
   @override
@@ -25,11 +26,11 @@ class _PrayButtonState extends State<PrayButton> with SingleTickerProviderStateM
       vsync: this,
     );
 
-    _animation = Tween<double>(begin: 180, end: 230).animate(_controller);
+    _animation = Tween<double>(begin: 180, end: 270).animate(_controller);
 
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        HapticFeedback.heavyImpact();
+        widget.onPressed();
         _controller.animateBack(180);
       }
     });
